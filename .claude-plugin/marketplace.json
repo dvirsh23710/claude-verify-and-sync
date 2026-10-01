@@ -1,0 +1,21 @@
+{
+  "name": "claude-verify-and-sync",
+  "owner": {
+    "name": "dvirsh23710"
+  },
+  "metadata": {
+    "description": "Verify every change, then commit and sync — a Claude Code skill (English + Hebrew).",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "verify-and-sync",
+      "description": "Prove every change works (all checks + a screen tour with screenshots), then commit, push and sync other worktrees.",
+      "version": "1.0.0",
+      "author": {
+        "name": "dvirsh23710"
+      },
+      "source": "./plugins/verify-and-sync"
+    }
+  ]
+}

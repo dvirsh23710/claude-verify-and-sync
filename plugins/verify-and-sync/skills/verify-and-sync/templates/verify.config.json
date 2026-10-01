@@ -1,0 +1,32 @@
+{
+  "language": "en",
+  "outputDir": ".verify",
+  "tourGallery": ".verify/tour/index.html",
+  "appUrl": "http://localhost:3000",
+  "steps": [
+    { "id": "typecheck", "label": { "en": "Type check", "he": "בדיקת טיפוסים" }, "run": "npm run typecheck" },
+    { "id": "lint", "label": { "en": "Code quality (lint)", "he": "איכות קוד" }, "run": "npm run lint" },
+    { "id": "format", "label": { "en": "Formatting", "he": "פורמט קוד" }, "run": "npx prettier --check ." },
+    { "id": "unit", "label": { "en": "Unit and integration tests", "he": "בדיקות יחידה ואינטגרציה" }, "run": "npm test" },
+    { "id": "build", "label": { "en": "Production build", "he": "בניית גרסת ייצור" }, "run": "npm run build" },
+    {
+      "id": "e2e",
+      "label": { "en": "End-to-end tests", "he": "בדיקות מקצה לקצה" },
+      "run": "npx playwright test",
+      "slow": true,
+      "env": { "CI": "1" }
+    },
+    {
+      "id": "tour",
+      "label": { "en": "Screen tour", "he": "סיור מסכים" },
+      "run": "npx playwright test --config playwright.tour.config.ts",
+      "slow": true,
+      "env": { "CI": "1" }
+    }
+  ],
+  "resetDemo": {
+    "before": "tour",
+    "run": ["npm run db:reset", "npm run db:seed"]
+  },
+  "sync": { "mainBranch": "main", "remote": "origin", "push": true }
+}

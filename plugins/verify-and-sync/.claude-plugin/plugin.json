@@ -1,0 +1,9 @@
+{
+  "name": "verify-and-sync",
+  "version": "1.0.0",
+  "description": "Prove every change works (all checks + a screen tour with screenshots), then commit, push and sync other worktrees.",
+  "author": {
+    "name": "dvirsh23710"
+  },
+  "license": "MIT"
+}
